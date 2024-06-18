@@ -1,108 +1,109 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Formulario</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registo de Gastos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div class="text-center bg-dark text-white p-4">
-        <h1>Formulario Servicio al Cliente</h1>
-    </div>
-    <main class="d-flex">
-        <div class="container-fluid p-2">
-            <form class="card p-3">
-                <div class="m-2">
-                    <label class="form-label" for="nombreCompleto">Nombre Completo</label>
-                    <input class="form-control" type="text" name="nombreCompleto" id="nombreCompleto" onblur="verificar(this.id)">
+    <header class="h-100 p-5 text-bg-success text-center">
+        <h1>Registo de Gastos</h1>
+    </header>
+    <main class="container-fluid row mt-3">
+        <div class="col-4">
+            <form class="card">
+                <div class="card-header">
+                    <h5>Completa el registro</h5>
                 </div>
-                <div class="m-2">
-                    <label class="form-label" for="email">Email</label>
-                    <input class="form-control" type="email" name="email" id="email" onblur="verificar(this.id)">
-                </div>
-                <div class="m-2">
-                    <label class="form-label" for="fecha">Fecha de la compra</label>
-                    <input class="form-control" type="date" id="fecha" onblur="verificar(this.id)">
-                </div>
-                <div class="m-2">
-                    <label class="form-label" for="producto">Producto/Servicio adquirido</label>
-                    <input class="form-control" type="text" id="producto" name="producto" onblur="verificar(this.id)">
-                </div>
-                <div class="m-2">
-                    <label class="form-label" for="calificacion">Calificación (0/5)</label>
-                    <input type="range" class="form-range" min="0" max="5" step="1" id="calificacion" value="">
-                    <label for="calificacion" id="calificacionNumber"></label>
-                </div>
-                <div class="m-2">
-                    <label class="form-label" for="comentario">Comentarios sobre la calidad del
-                        producto/servicio</label>
-                    <textarea name="comentario" class="form-control" id="comentario" onblur="verificar(this.id)"></textarea>
-                </div>
-                <div class="m-2">
-                    <label class="form-label">Opinión sobre la atención al cliente</label><br>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="opinion" id="service-good" value="buena" onblur="verificar(this.id)">
-                        <label class="form-check-label" for="service-good">Buena</label>
+                <div class="card-body">
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" onblur="verificar(this.id)">
+                        <div id="nombre"></div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="opinion" id="service-average" value="regular" onblur="verificar(this.id)">
-                        <label class="form-check-label" for="service-average">Regular</label>
+                    <div>
+                        <label>Fecha Ingreso</label>
+                        <input type="date" id="fecha" name="fecha" class="form-control" onblur="verificar(this.id)">
+                        <div id="fecha"></div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="opinion" id="service-bad" value="mala" onblur="verificar(this.id)"> 
-                        <label class="form-check-label" for="service-bad">Mala</label>
+                    <div>
+                        <label>Teléfono</label>
+                        <input type="text" id="fono" name="fono" maxlength="9" onblur="verificar(this.id)"
+                        onkeypress="return soloNumeros(event)" class="form-control">
+                        <div id="fono"></div>
+                    </div>
+                    <div>
+                        <label>Gasto en Comida</label>
+                        <input type="text" id="comida" name="comida" maxlength="9" onblur="verificar(this.id)"
+                        onkeypress="return soloNumeros(event)" class="form-control">
+                        <div id="comida"></div>
+                    </div>
+                    <div>
+                        <label>Gasto en Transporte</label>
+                        <input type="text" id="transporte" name="transporte" maxlength="9" onblur="verificar(this.id)"
+                        onkeypress="return soloNumeros(event)" class="form-control">
+                        <div id="transporte"></div>
+                    </div>
+                    <div>
+                        <label class="form-label">Ocupacion del dia</label><br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ocupacion" id="traba" value="trabajo">
+                            <label class="form-check-label" for="traba">Trabajo</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ocupacion" id="estu" value="estudios">
+                            <label class="form-check-label" for="estu">Estudios</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ocupacion" id="desc" value="descanso"> 
+                            <label class="form-check-label" for="desc">Descanso</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label">Rango de Sueldo</label><br>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Selecciona</option>
+                            <option value="1">Sin sueldo</option>
+                            <option value="2">500.000-600.000</option>
+                            <option value="3">700.000-800.000</option>
+                            <option value="3">900.000-1.000.000</option>
+                        </select>
                     </div>
                 </div>
-                <div class="m-2">
-                    <label class="form-label">¿Recomendarías nuestro producto/servicio?</label><br>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name='recomendacion' id="recommend-yes" value="sí" onblur="verificar(this.id)">
-                        <label class="form-check-label" for="recommend-yes">Sí</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name='recomendacion' id="recommend-no" value="no" onblur="verificar(this.id)">
-                        <label class="form-check-label" for="recommend-no">No</label>
-                    </div>
-                </div>
-                <div class="m-2">
-                    <label for="sugerencias" class="form-label">Sugerencias para mejorar:</label>
-                    <textarea id="sugerencias" class="form-control" name="sugerencias" onblur="verificar(this.id)"></textarea>
+                <div class="card-footer text-center">
+                    <input type="button" value="Limpiar" onclick="limpiar()" class="btn btn-info w-25">
+                    <input type="button" id="btnGuardar" value="Guardar" class="btn btn-success w-25">
                 </div>
             </form>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-outline-success m-2" id="btn-enviar" value="Enviar">Enviar</button>
-                <button class="btn btn-outline-warning m-2" id="btn-limpiar" onclick="limpiar()">Limpiar</button>
-            </div>
         </div>
         <div class="col-8">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
-                    <thead class="table-success">
+                    <thead class="table-dark">
                         <tr>
-                            <th>Nombre Completo</th>
-                            <th>Email</th>
-                            <th>Fecha</th>
-                            <th>Producto/Servicio</th>
-                            <th>Calificación</th>
-                            <th>Comentarios</th>
-                            <th>Opinión</th>
-                            <th>¿Recomendarías?</th>
-                            <th>Sugerencias</th>
+                            <th>Nombre</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Teléfono</th>
+                            <th>Comida</th>
+                            <th>Transporte</th>
+                            <th>Ocupacion</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody id="contenido"></tbody>
                 </table>
-            </div>
+            </div> 
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="verifica.js"></script>
+    <script src="helper.js"></script>
+    <!-- type module permite importar y exportar funciones -->
     <script src="funciones.js" type="module"></script>
 </body>
 </html>
